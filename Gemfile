@@ -18,6 +18,8 @@ gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'twitter', '~> 6.2'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
@@ -27,8 +29,8 @@ gem 'rack-attack'
 # rest client
 gem 'rest-client', '~> 2.0.2'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+# OpenWeatherMap gem to comunicate and extract weather forecast
+gem 'OpenWeatherMap', git: 'https://github.com/tiagoleal/OpenWeatherMap-sdk.git'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

@@ -10,8 +10,8 @@ services:
     volumes:
       - .:/twwiterapi
       - app-gems:/app-gems
-    # env_file:
-    #   - ".env"
+    env_file:
+      - ".env"
 
 volumes:
   app-gems:
