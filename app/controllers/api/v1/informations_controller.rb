@@ -8,13 +8,13 @@ module Api
         params[:city] = 'Santa Cruz do Sul' unless params[:city].present?
 
         info_service = InformationService.new(params[:id], params[:city])
-        message_temp = info_service.openweather_forecast_complete
+        openweather  = info_service.call
+        message_temp = openweather.complete_forecast
         info_service.publish_twitter_message(message_temp[:message])
 
         render json: message_temp
       rescue StandardError => e
-        render json: { errors: e }, status: :unprocessable_entity
-        # render json: { errors: 'Error not passed id' }, status: :unprocessable_entity
+        render json: { errors: 'Error not passed id' }, status: :unprocessable_entity
       end
 
       def current
@@ -22,7 +22,8 @@ module Api
         params[:city] = 'Santa Cruz do Sul' unless params[:city].present?
 
         info_service = InformationService.new(params[:id], params[:city])
-        message_temp = info_service.openweather_forecast_current
+        openweather  = info_service.call
+        message_temp = openweather.current_forecast
         info_service.publish_twitter_message(message_temp[:message])
 
         render json: message_temp
@@ -35,7 +36,8 @@ module Api
         params[:city] = 'Santa Cruz do Sul' unless params[:city].present?
 
         info_service = InformationService.new(params[:id], params[:city])
-        message_temp = info_service.openweather_forecast_next_five_days
+        openweather  = info_service.call
+        message_temp = openweather.next_five_forecast
         info_service.publish_twitter_message(message_temp[:message])
 
         render json: message_temp

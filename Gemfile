@@ -42,7 +42,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'json_matchers'
   gem 'rspec-json_expectations'
+  gem 'simplecov'
 end
 
 group :development do

@@ -1,24 +1,13 @@
 # frozen_string_literal: true
 
 class InformationService
-  def initialize(id, city)
+  def initialize(id, city = 'Santa Cruz do Sul')
     @id = id
     @city = city
   end
 
-  def openweather_forecast_complete
-    openweather = OpenWeatherMap::Auth.new(@id, @city)
-    openweather.complete_forecast
-  end
-
-  def openweather_forecast_current
-    openweather = OpenWeatherMap::Auth.new(@id, @city)
-    openweather.current_forecast
-  end
-
-  def openweather_forecast_next_five_days
-    openweather = OpenWeatherMap::Auth.new(@id, @city)
-    openweather.next_five_forecast
+  def call
+    OpenWeatherMap::Auth.new(@id, @city)
   end
 
   def publish_twitter_message(message)
