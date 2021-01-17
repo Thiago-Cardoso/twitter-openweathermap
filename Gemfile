@@ -29,7 +29,7 @@ gem 'rack-attack'
 # rest client
 gem 'rest-client', '~> 2.0.2'
 
-# OpenWeatherMap gem to comunicate and extract weather forecast
+# gem to comunicate and OpenweatherMap API
 gem 'OpenWeatherMap', git: 'https://github.com/tiagoleal/OpenWeatherMap-sdk.git'
 
 # Reduces boot times through caching; required in config/boot.rb

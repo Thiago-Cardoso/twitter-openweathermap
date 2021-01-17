@@ -10,6 +10,6 @@ module Rack
     end
 
     # Allow an IP address to make 5 requests every 5 seconds
-    throttle('req/ip', limit: 5, period: 5, &:ip)
+    throttle('req/ip', limit: 100, period: 60, &:ip)
   end
 end

@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/tiagoleal/OpenWeatherMap-sdk.git
-  revision: 496d0c54fa44a8a65ff27a34a96ffa0bbb509607
+  revision: 8d449c473a623cf71828a143250e1bdb79667e2b
   specs:
-    OpenWeatherMap (0.1.0)
+    OpenWeatherMap (1.0.0)
 
 GEM
   remote: https://rubygems.org/

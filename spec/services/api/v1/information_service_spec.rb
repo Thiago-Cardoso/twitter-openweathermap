@@ -18,7 +18,7 @@ describe InformationService do
     context '#publish_twitter_message' do
       it 'With success authenticate' do
         info_service = InformationService.new(ENV.fetch('OPENWEATHERMAP_TOKEN'))
-        twitter_response = info_service.publish_twitter_message('TESTE')
+        twitter_response = info_service.publish_twitter_message('teste')
         expect(twitter_response).present?
       end
     end

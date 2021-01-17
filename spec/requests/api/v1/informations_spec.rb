@@ -9,30 +9,26 @@ RSpec.describe 'Api::V1::Informations', type: :request do
   describe 'POST /api/v1/informations/weather/forecast/complete' do
     context '#complete' do
       context 'return 200 OK response' do
-        it 'When send only param id' do
-          post api_v1_informations_weather_forecast_complete_path,
-               params: {
-                 id: id
-               },
-               headers: headers
-
-          expect(response).to have_http_status(200)
-        end
-
-        it 'When send params: id and city' do
-          post api_v1_informations_weather_forecast_complete_path,
+        before do
+          post '/api/v1/informations/weather/forecast/complete',
                params: {
                  id: id,
                  city: 'Lajeado'
                },
                headers: headers
+        end
+        it 'When send only param id' do
+          expect(response).to have_http_status(200)
+        end
+
+        it 'When send params: id and city' do
           expect(response).to have_http_status(200)
         end
       end
 
       context 'return valid schema JSON' do
         it 'When structure is valid' do
-          post api_v1_informations_weather_forecast_complete_path,
+          post '/api/v1/informations/weather/forecast/complete',
                params: {
                  id: id,
                  city: 'Lajeado'
@@ -42,7 +38,7 @@ RSpec.describe 'Api::V1::Informations', type: :request do
         end
 
         it 'When has key message' do
-          post api_v1_informations_weather_forecast_complete_path,
+          post '/api/v1/informations/weather/forecast/complete',
                params: {
                  id: id,
                  city: 'Lajeado'
@@ -56,7 +52,7 @@ RSpec.describe 'Api::V1::Informations', type: :request do
 
       context 'return 422 unprocessable_entity response' do
         it 'When invalid params' do
-          post api_v1_informations_weather_forecast_complete_path,
+          post '/api/v1/informations/weather/forecast/complete',
                params: {},
                headers: headers
 
@@ -69,30 +65,26 @@ RSpec.describe 'Api::V1::Informations', type: :request do
   describe 'POST /api/v1/informations/weather/forecast/current' do
     context '#current' do
       context 'return 200 OK response' do
-        it 'When send only param id' do
-          post api_v1_informations_weather_forecast_current_path,
-               params: {
-                 id: id
-               },
-               headers: headers
-
-          expect(response).to have_http_status(200)
-        end
-
-        it 'When send params: id and city' do
-          post api_v1_informations_weather_forecast_current_path,
+        before do
+          post '/api/v1/informations/weather/forecast/current',
                params: {
                  id: id,
                  city: 'Lajeado'
                },
                headers: headers
+        end
+        it 'When send only param id' do
+          expect(response).to have_http_status(200)
+        end
+
+        it 'When send params: id and city' do
           expect(response).to have_http_status(200)
         end
       end
 
       context 'return valid schema JSON' do
         it 'When structure is valid' do
-          post api_v1_informations_weather_forecast_current_path,
+          post '/api/v1/informations/weather/forecast/current',
                params: {
                  id: id
                },
@@ -101,7 +93,7 @@ RSpec.describe 'Api::V1::Informations', type: :request do
         end
 
         it 'When has key message' do
-          post api_v1_informations_weather_forecast_current_path,
+          post '/api/v1/informations/weather/forecast/current',
                params: {
                  id: id
                },
@@ -114,7 +106,7 @@ RSpec.describe 'Api::V1::Informations', type: :request do
 
       context 'return 422 unprocessable_entity response' do
         it 'When invalid params' do
-          post api_v1_informations_weather_forecast_current_path,
+          post '/api/v1/informations/weather/forecast/current',
                params: {},
                headers: headers
 
@@ -124,49 +116,39 @@ RSpec.describe 'Api::V1::Informations', type: :request do
     end
   end
 
-  describe 'POST /api/v1/informations/weather/forecast/next-days' do
+  describe 'POST /api/v1/informations/weather/forecast/nextdays' do
     context '#nextdays' do
       context 'return 200 OK response' do
-        it 'When send only param id' do
-          post api_v1_informations_weather_forecast_next_days_path,
+        before do
+          post '/api/v1/informations/weather/forecast/nextdays',
                params: {
                  id: id
                },
                headers: headers
-
+        end
+        it 'When send only param id' do
           expect(response).to have_http_status(200)
         end
 
         it 'When send params: id and city' do
-          post api_v1_informations_weather_forecast_next_days_path,
-               params: {
-                 id: id,
-                 city: 'Lajeado'
-               },
-               headers: headers
           expect(response).to have_http_status(200)
         end
       end
 
       context 'return valid schema JSON' do
-        it 'When structure is valid' do
-          post api_v1_informations_weather_forecast_next_days_path,
+        before do
+          post '/api/v1/informations/weather/forecast/nextdays',
                params: {
                  id: id,
                  city: 'Lajeado'
                },
                headers: headers
+        end
+        it 'When structure is valid' do
           expect(response.body).to match_response_schema('information')
         end
 
         it 'When has key message' do
-          post api_v1_informations_weather_forecast_next_days_path,
-               params: {
-                 id: id,
-                 city: 'Lajeado'
-               },
-               headers: headers
-
           body_as_json = JSON.parse(response.body)
           expect(body_as_json.keys).to match_array(['message'])
         end
@@ -174,7 +156,7 @@ RSpec.describe 'Api::V1::Informations', type: :request do
 
       context 'return 422 unprocessable_entity response' do
         it 'When invalid params' do
-          post api_v1_informations_weather_forecast_next_days_path,
+          post '/api/v1/informations/weather/forecast/nextdays',
                params: {},
                headers: headers
 
