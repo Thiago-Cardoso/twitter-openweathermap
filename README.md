@@ -10,7 +10,8 @@
   <a href="https://guides.rubyonrails.org/6_0_release_notes.html">
     <img alt="" src="https://img.shields.io/badge/Rails- 6.0-blue.svg" target="_blank">
   </a>
-   
+<a href='https://coveralls.io/github/tiagoleal/twitter-openweathermap?branch=master'><img src='https://coveralls.io/repos/github/tiagoleal/twitter-openweathermap/badge.svg?branch=master' alt='Coverage Status' /></a>
+
 </p>
 
 A Ruby interface to the Openweather API.
