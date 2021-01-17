@@ -14,12 +14,11 @@ module Api
           complete_forecast_json[0],
           complete_forecast_json[1]
         )
-        # info_service.publish_twitter_message(message_temp)
+        info_service.publish_twitter_message(message_temp)
 
         render json: message_temp
       rescue StandardError => e
-        render json: { errors: e }, status: :unprocessable_entity
-        # render json: { errors: 'Error not passed id' }, status: :unprocessable_entity
+        render json: { errors: 'Error not passed id' }, status: :unprocessable_entity
       end
 
       def forecast_current
@@ -32,7 +31,7 @@ module Api
           openweather.current_forecast
         )
 
-        # info_service.publish_twitter_message(message_temp)
+        info_service.publish_twitter_message(message_temp)
 
         render json: message_temp
       rescue StandardError => e
@@ -49,7 +48,7 @@ module Api
           openweather.next_five_forecast
         )
 
-        # info_service.publish_twitter_message(message_temp)
+        info_service.publish_twitter_message(message_temp)
 
         render json: message_temp
       rescue StandardError => e
