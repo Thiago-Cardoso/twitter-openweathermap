@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Api::V1::Informations', type: :request do
   headers = { 'ACCEPT' => 'application/json' }
-  id = ENV.fetch('OPENWEATHERMAP_TOKEN')
+  id = 'f32b88630791a7026ad9e5bceddafec5'
 
   describe 'POST /api/v1/informations/weather/forecast/complete' do
     context '#complete' do
